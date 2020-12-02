@@ -1,74 +1,74 @@
-<!--<html>-->
-<!--    <head>-->
-<!--        <meta charset="UTF-8" />-->
-<!--        <title>GuGuDan</title>-->
-<!--        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>-->
-<!--        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>-->
-<!--        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
-<!--    </head>-->
-<!--    <body>-->
-<!--        <div id="root"></div>-->
-<!--        <script type="text/babel">-->
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>GuGuDan</title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
 
-<!--            class GuGuDan extends React.Component {-->
-<!--                state = {-->
-<!--                    firstRandomVal:Math.ceil(Math.random() * 9),-->
-<!--                    seccondRandomVal:Math.ceil(Math.random() * 9),-->
-<!--                    inputValue:'',-->
-<!--                    result:''-->
-<!--                };-->
-<!--                -->
+            class GuGuDan extends React.Component {
+                state = {
+                    firstRandomVal:Math.ceil(Math.random() * 9),
+                    seccondRandomVal:Math.ceil(Math.random() * 9),
+                    inputValue:'',
+                    result:''
+                };
 
-<!--                onChange = (e) => {-->
-<!--                    this.setState({-->
-<!--                        inputValue : e.target.value-->
-<!--                    });-->
-<!--                };-->
 
-<!--                onSubmit = (e) => {-->
-<!--                    e.preventDefault();-->
+                onChange = (e) => {
+                    this.setState({
+                        inputValue : e.target.value
+                    });
+                };
 
-<!--                    var answer = (this.state.firstRandomVal * this.state.seccondRandomVal);-->
-<!--                    var good = (preveValue) => {-->
-<!--                        return {-->
-<!--                                firstRandomVal : Math.ceil(Math.random() * 9),-->
-<!--                                seccondRandomVal : Math.ceil(Math.random() * 9),-->
-<!--                                inputValue : '',-->
-<!--                                result : preveValue.inputValue + ' 정답!'-->
-<!--                                };-->
-<!--                    };-->
-<!--                    var bad = {-->
-<!--                        inputValue : '',-->
-<!--                        result : '오답!'-->
-<!--                    };-->
+                onSubmit = (e) => {
+                    e.preventDefault();
 
-<!--                    answer === parseInt(this.state.inputValue) ? this.setState(good) : this.setState(bad);-->
+                    var answer = (this.state.firstRandomVal * this.state.seccondRandomVal);
+                    var good = (preveValue) => {
+                        return {
+                                firstRandomVal : Math.ceil(Math.random() * 9),
+                                seccondRandomVal : Math.ceil(Math.random() * 9),
+                                inputValue : '',
+                                result : preveValue.inputValue + ' 정답!'
+                                };
+                    };
+                    var bad = {
+                        inputValue : '',
+                        result : '오답!'
+                    };
 
-<!--                    this.input.focus();-->
-<!--                };-->
+                    answer === parseInt(this.state.inputValue) ? this.setState(good) : this.setState(bad);
 
-<!--                inputRef = (e) => {-->
-<!--                    this.input = e;-->
-<!--                };-->
+                    this.input.focus();
+                };
 
-<!--                input;-->
+                inputRef = (e) => {
+                    this.input = e;
+                };
 
-<!--                render() {-->
-<!--                    return (-->
-<!--                        <React.Fragment>-->
-<!--                            <div>{this.state.firstRandomVal}곱하기 {this.state.seccondRandomVal}는?</div>-->
-<!--                            <form onSubmit={this.onSubmit}>-->
-<!--                                <input ref={this.inputRef} type="number" value={this.state.inputValue} onChange={this.onChange}/>-->
-<!--                                <button type="submit">입력!</button>-->
-<!--                            </form>-->
-<!--                            <div>{this.state.result}</div>-->
-<!--                        </React.Fragment>-->
-<!--                    );-->
-<!--                }-->
-<!--            }-->
-<!--        </script>-->
-<!--        <script type="text/babel">-->
-<!--            ReactDOM.render(<GuGuDan/>, document.querySelector('#root'));-->
-<!--        </script>-->
-<!--    </body>-->
-<!--</html>-->
+                input;
+
+                render() {
+                    return (
+                        <React.Fragment>
+                            <div>{this.state.firstRandomVal}곱하기 {this.state.seccondRandomVal}는?</div>
+                            <form onSubmit={this.onSubmit}>
+                                <input ref={this.inputRef} type="number" value={this.state.inputValue} onChange={this.onChange}/>
+                                <button type="submit">입력!</button>
+                            </form>
+                            <div>{this.state.result}</div>
+                        </React.Fragment>
+                    );
+                }
+            }
+        </script>
+        <script type="text/babel">
+            ReactDOM.render(<GuGuDan/>, document.querySelector('#root'));
+        </script>
+    </body>
+</html>
