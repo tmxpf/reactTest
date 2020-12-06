@@ -1,5 +1,5 @@
 const React = require('react');
-const { useState, useRef, memo } = React;
+const { useState, useRef } = React;
 const TryForHooks = require('./TryForHooks');
 
 function getNumbers() {
@@ -15,7 +15,7 @@ function getNumbers() {
 }
 
 
-const NumberBaseBallForHooks = memo(() => {
+const NumberBaseBallForHooks = () => {
     const [result, setResult] = useState('');
     const [value, setValue] = useState('');
     const [answer, setAnswer] = useState(getNumbers());
@@ -88,6 +88,6 @@ const NumberBaseBallForHooks = memo(() => {
         </>
     );
 
-});
+}
 
 module.exports = NumberBaseBallForHooks;

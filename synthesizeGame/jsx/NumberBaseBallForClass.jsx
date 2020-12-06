@@ -1,4 +1,4 @@
-import React, { PureComponent, createRef } from 'react';
+import React, { Component } from 'react';
 import TryForClass from './TryForClass';
 
 function getNumbers() {
@@ -13,7 +13,7 @@ function getNumbers() {
     return array;
 }
 
-class NumberBaseBallForClass extends PureComponent {
+class NumberBaseBallForClass extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,13 +24,11 @@ class NumberBaseBallForClass extends PureComponent {
         };
     }
 
-    // inputRef = (c) => {
-    //     this.input = c;
-    // };
-    //
-    // input;
+    inputRef = (c) => {
+        this.input = c;
+    };
 
-    inputRef = createRef();
+    input;
 
     onChangeInput = (e) => {
         this.setState({
@@ -90,12 +88,12 @@ class NumberBaseBallForClass extends PureComponent {
 
         }
 
-        this.inputRef.current.focus();
+        this.input.focus();
     };
 
     render() {
         const { value, tries, answer, result } = this.state;
-        
+
         return (
             <>
                 <h1>{result}</h1>

@@ -1,13 +1,13 @@
 const React = require('react');
-const { useState, useRef, memo } = React;
+const { useState, useRef } = React;
 
-const TryForHooks = memo(({ tryInfo }) => {
+const TryForHooks = ({ tryInfo }) => {
     return(
         <li>
             <div>{tryInfo.try}</div>
             <div>{tryInfo.result}</div>
         </li>
     )
-});
+}
 
 module.exports = TryForHooks;
