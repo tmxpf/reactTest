@@ -6,6 +6,7 @@ const ReactDom = require('react-dom');
 // const NumberBaseBallForHooks = require('./NumberBaseBallForHooks');
 // import ResponseCheckForClass from './ResponseCheckForClass';
 // const ResponseCheckForHooks = require('./ResponseCheckForHooks');
-import RSPForClass from './RSPForClass';
+// import RSPForClass from './RSPForClass';
+const RSPForHooks = require('./RSPForHooks');
 
-ReactDom.render(<RSPForClass/>, document.querySelector('#root'));
+ReactDom.render(<RSPForHooks/>, document.querySelector('#root'));
