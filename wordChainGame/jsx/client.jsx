@@ -7,6 +7,7 @@ const ReactDom = require('react-dom');
 // import ResponseCheckForClass from './ResponseCheckForClass';
 // const ResponseCheckForHooks = require('./ResponseCheckForHooks');
 // import RSPForClass from './RSPForClass';
-const RSPForHooks = require('./RSPForHooks');
+// const RSPForHooks = require('./RSPForHooks');
+import LottoForClass from './LottoForClass';
 
-ReactDom.render(<RSPForHooks/>, document.querySelector('#root'));
+ReactDom.render(<LottoForClass/>, document.querySelector('#root'));
