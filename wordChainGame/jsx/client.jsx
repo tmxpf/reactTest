@@ -9,6 +9,7 @@ const ReactDom = require('react-dom');
 // import RSPForClass from './RSPForClass';
 // const RSPForHooks = require('./RSPForHooks');
 // import LottoForClass from './LottoForClass';
-const LottoForHooks = require('./LottoForHooks');
+// const LottoForHooks = require('./LottoForHooks');
+import TicTacToe from "./TicTacToe";
 
-ReactDom.render(<LottoForHooks/>, document.querySelector('#root'));
+ReactDom.render(<TicTacToe/>, document.querySelector('#root'));
