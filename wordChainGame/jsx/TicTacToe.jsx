@@ -62,8 +62,12 @@ const TicTacToe = memo(() => {
     const { tableData, winner, turn, recentCell } = state;
     let reset = useRef(null);
 
-    const onClickTable = useCallback(() => {
-        console.log('onClickTable');
+    const onClickTable = useCallback((e) => {
+        if(winner) {
+            console.log('onClickTable');
+            e.preventDefault();
+        }
+
     }, []);
 
     useEffect(() => {
@@ -102,7 +106,7 @@ const TicTacToe = memo(() => {
 
     return(
         <>
-            <TableForTicTacToe tableEvent={onClickTable} tableData={tableData} dispatch={dispatch}/>
+            <TableForTicTacToe tableEvent={onClickTable} tableData={tableData} dispatch={dispatch} winner={winner}/>
             {winner && <div>{winner}님의 승리</div>}
         </>
     )
