@@ -7,7 +7,7 @@ const tdForTicTacToe = memo(({ cellIndex, dispatch, cellData, rowIndex, winner }
         console.log('cellClick');
         console.log(rowIndex + ' ' + cellIndex);
         // 현재 선택한 셀에 값이 있다면 리턴.
-
+        //승리자가 결정되면 리턴
         if(cellData || winner) {
             return;
         }
