@@ -20,12 +20,13 @@ export const CHANGE_TURN = 'CHANGE_TURN';
 const reducer = (state, action) => {
     switch (action.type) {
         case SET_WINNER:
-            debugger;
+            console.log('SET_WINNER');
             return {
                 ...state,
                 winner: action.winner
             };
         case CELL_CLICK:
+            console.log('CELL_CLICK');
             const tableData = [...state.tableData];
             tableData[action.row] = [...tableData[action.row]];
             tableData[action.row][action.cell] = state.turn;
@@ -36,6 +37,7 @@ const reducer = (state, action) => {
                 recentCell: [action.row, action.cell]
             };
         case RESET_GAME:
+            console.log('RESET_GAME');
             return {
                 winner: '',
                 turn: 'O',
@@ -47,6 +49,7 @@ const reducer = (state, action) => {
                 recentCell: [-1, -1]
             }
         case CHANGE_TURN:
+            console.log('CHANGE_TURN');
             return {
                 ...state,
                 turn: state.turn === 'O' ? 'X' : 'O'
@@ -57,13 +60,14 @@ const reducer = (state, action) => {
 const TicTacToe = memo(() => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { tableData, winner, turn, recentCell } = state;
+    let reset = useRef(null);
 
     const onClickTable = useCallback(() => {
-        console.log('2212');
-        dispatch({ type: SET_WINNER, winner: 'O' });
+        console.log('onClickTable');
     }, []);
 
     useEffect(() => {
+        console.log('useEffect');
         const [row, cell] = recentCell;
         if(row < 0) return;
 
@@ -84,17 +88,22 @@ const TicTacToe = memo(() => {
 
         if(win) {
             dispatch({type: SET_WINNER, winner: turn});
-            dispatch({type: RESET_GAME});
+            reset = setTimeout(() => {
+                        dispatch({type: RESET_GAME});
+                    }, 1000);
         } else {
             dispatch({ type: CHANGE_TURN });
         }
 
+        return () => {
+            clearTimeout(reset);
+        }
     }, [recentCell]);
 
     return(
         <>
             <TableForTicTacToe onClick={onClickTable} tableData={tableData} dispatch={dispatch}/>
-            {winner && <div>{winner}의 승리입니다.</div>}
+            {winner && <div>{winner}님의 승리</div>}
         </>
     )
 });
