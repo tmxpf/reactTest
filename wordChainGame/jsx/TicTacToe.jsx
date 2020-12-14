@@ -102,7 +102,7 @@ const TicTacToe = memo(() => {
 
     return(
         <>
-            <TableForTicTacToe onClick={onClickTable} tableData={tableData} dispatch={dispatch}/>
+            <TableForTicTacToe tableEvent={onClickTable} tableData={tableData} dispatch={dispatch}/>
             {winner && <div>{winner}님의 승리</div>}
         </>
     )
