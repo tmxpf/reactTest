@@ -10,6 +10,7 @@ const ReactDom = require('react-dom');
 // const RSPForHooks = require('./RSPForHooks');
 // import LottoForClass from './LottoForClass';
 // const LottoForHooks = require('./LottoForHooks');
-import TicTacToe from "./TicTacToe";
+// import TicTacToe from "./TicTacToe";
+import MineSearch from "./MineSearch/MineSearch";
 
-ReactDom.render(<TicTacToe/>, document.querySelector('#root'));
+ReactDom.render(<MineSearch/>, document.querySelector('#root'));
